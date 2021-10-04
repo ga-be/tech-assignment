@@ -1,12 +1,11 @@
 version: '3.1'
 services:
   API:
-    image: 'technical-assignment-docker.jar'
+    build:
+      context: .
+    image: technical-assignment-docker
     ports:
       - "8080:8080"
-    depends_on:
-      PostgreSQL:
-        condition: service_healthy
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/images
       - SPRING_DATASOURCE_USERNAME=postgres
@@ -14,7 +13,7 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - spring.servlet.multipart.max-file-size=8MB
       - spring.servlet.multipart.max-request-size=8MB
-      - spring.cloud.gcp.credentials.location=file:/golden-passkey-327415-bdc63943efed.json
+      - spring.cloud.gcp.credentials.location=file:/key.json
   
   PostgreSQL:
     image: postgres
