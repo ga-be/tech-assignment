@@ -6,6 +6,11 @@ services:
     image: technical-assignment-docker
     ports:
       - "8080:8080"
+    depends_on:
+      PostgreSQL:
+        condition: service_healthy
+    links:
+      - db
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/images
       - SPRING_DATASOURCE_USERNAME=postgres
