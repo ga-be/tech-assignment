@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 3%;
+}
+
+form {
+  margin-bottom: 3%;
+}
+
+table {
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  width: 350px;
+}
+
+td {
+  width: 350px;
+}
